@@ -11,9 +11,10 @@ SolarStep is a mobile application (for both Android and iOS users) that provides
 [Google Slide](https://docs.google.com/presentation/d/18XTtvTAar9vpMbOdGJNrJfuC7_lya88Gac9c6RfdB4w/edit?usp=sharing)
 
 ## Screenshots
-
+<p>
 <img src="./assets/demo/1.jpg" alt="UI" width="40%"/>
 <img src="./assets/demo/2.jpg" alt="UI" width="40%"/>
+</p>
 
 ## Features
 
