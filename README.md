@@ -12,8 +12,8 @@ SolarStep is a mobile application (for both Android and iOS users) that provides
 
 ## Screenshots
 
-<img src="./assets/demo/1.png" alt="UI"/>
-<img src="./assets/demo/2.png" alt="UI"/>
+<img src="./assets/demo/1.jpg" alt="UI"/>
+<img src="./assets/demo/2.jpg" alt="UI"/>
 
 ## Features
 
