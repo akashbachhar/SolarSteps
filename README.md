@@ -1,4 +1,4 @@
-# SolarDrops
+# SolarSteps
 
 SolarStep is a mobile application (for both Android and iOS users) that provides a graphical display of available sunshine in a particular location and for a particular period (year).
 
