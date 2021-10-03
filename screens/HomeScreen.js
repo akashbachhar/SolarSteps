@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Button, Image } from 'react-native-elements';
 
 const HomeScreen = ({ navigation }) => {
@@ -13,8 +13,8 @@ const HomeScreen = ({ navigation }) => {
             />
 
             <View>
-                <Button title="Default" containerStyle={styles.button} raised onPress={() => navigation.navigate("DefaultResult")} />
-                <Button title="Custom" containerStyle={styles.button} raised onPress={() => navigation.navigate("CustomInput")} />
+                <Button title="Default" containerStyle={styles.button} raised onPress={() => navigation.navigate("Your Location")} />
+                <Button title="Custom" containerStyle={styles.button} raised onPress={() => navigation.navigate("Input")} />
             </View>
 
         </View>
@@ -39,5 +39,5 @@ const styles = StyleSheet.create({
     button: {
         width: 300,
         marginTop: 10,
-    }
+    },
 })

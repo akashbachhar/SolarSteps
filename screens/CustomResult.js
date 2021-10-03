@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
+import { Image } from 'react-native-elements';
 
-const HomeScreen = ({ route, navigation }) => {
+const CustomResult = ({ route, navigation }) => {
     const year = route.params.year;
     const long = route.params.long;
     const lat = route.params.lat;
@@ -74,12 +75,16 @@ const HomeScreen = ({ route, navigation }) => {
             <VictoryChart width={350} theme={VictoryTheme.material}>
                 <VictoryBar style={{ data: { fill: "#c43a31" } }} data={graphData} x="month" y="solarData" />
             </VictoryChart>
+
+            <Image source={require('../assets/nasa.png')}
+                style={styles.nasaLogo}
+            />
         </View>
     )
 
 }
 
-export default HomeScreen
+export default CustomResult
 
 const styles = StyleSheet.create({
     container: {
@@ -112,5 +117,10 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 20,
         textAlign: "center",
-    }
+    },
+    nasaLogo: {
+        marginTop: 20,
+        height: 50,
+        width: 125,
+    } 
 })

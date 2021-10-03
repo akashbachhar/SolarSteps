@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Alert } from 'react-native';
 import * as Location from 'expo-location';
 import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
+import { Image } from 'react-native-elements';
 
 const DefaultResult = () => {
     const [location, setLocation] = useState({});
@@ -86,6 +87,11 @@ const DefaultResult = () => {
             <VictoryChart width={350} theme={VictoryTheme.material}>
                 <VictoryBar style={{ data: { fill: "#c43a31" } }} data={graphData} x="month" y="solarData" />
             </VictoryChart>
+
+            <Image source={require('../assets/nasa.png')}
+                style={styles.nasaLogo}
+            />
+
         </View>
     )
 }
@@ -123,5 +129,10 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 20,
         textAlign: "center",
+    },
+    nasaLogo: {
+        marginTop: 20,
+        height: 50,
+        width: 125,
     }
 })

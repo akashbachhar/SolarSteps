@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Button, KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native';
-import { Input } from 'react-native-elements';
+import { KeyboardAvoidingView, StyleSheet, View } from 'react-native';
+import { Button, Input } from 'react-native-elements';
 
-const HomeScreen = ({ navigation }) => {
+const CustomInputScreen = ({ navigation }) => {
 
     const [year, setYear] = useState(null);
     const [lat, setLat] = useState(null);
@@ -36,13 +36,13 @@ const HomeScreen = ({ navigation }) => {
                 />
             </View>
             
-            <Button title="Submit" containerStyle={styles.button} raised onPress={()=> navigation.navigate("CustomResult", {year: year, lat: lat, long: long })} /> 
+            <Button title="Submit" containerStyle={styles.button} raised onPress={()=> navigation.navigate("Custom Location", {year: year, lat: lat, long: long })} /> 
         
         </KeyboardAvoidingView>
     )
 }
 
-export default HomeScreen
+export default CustomInputScreen
 
 const styles = StyleSheet.create({
     container: {

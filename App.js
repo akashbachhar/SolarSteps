@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './screens/HomeScreen';
@@ -20,9 +20,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={globalScreenOption}>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="CustomInput" component={CustomInputScreen} />
-        <Stack.Screen name="CustomResult" component={CustomResult} />
-        <Stack.Screen name="DefaultResult" component={DefaultResult} />
+        <Stack.Screen name="Input" component={CustomInputScreen} />
+        <Stack.Screen name="Custom Location" component={CustomResult} />
+        <Stack.Screen name="Your Location" component={DefaultResult} />
       </Stack.Navigator>
     </NavigationContainer>
   );
