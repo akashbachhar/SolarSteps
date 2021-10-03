@@ -10,6 +10,11 @@ SolarStep is a mobile application (for both Android and iOS users) that provides
 
 [Google Slide](https://docs.google.com/presentation/d/18XTtvTAar9vpMbOdGJNrJfuC7_lya88Gac9c6RfdB4w/edit?usp=sharing)
 
+## Screenshots
+
+<img src="./assets/demo/1.png" alt="UI"/>
+<img src="./assets/demo/2.png" alt="UI"/>
+
 ## Features
 
 - Month vs Available Sunshine( in kW-hr/m^2/day unit) histogram will be displayed based on the user input.
