@@ -1,3 +1,3 @@
 # SolarDrops
 
-## NASA Space App Challange
+## NASA Space App Challange :)
