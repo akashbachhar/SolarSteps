@@ -18,7 +18,7 @@ SolarSteps is a mobile application (for both Android and iOS users) that provide
 
 ## Features
 
-- Month vs Available Sunshine( in kW-hr/m^2/day unit) histogram will be displayed based on the user input.
+- Month vs Available Sunshine( in kW-hr/m^2/day unit) Bar Chart will be displayed based on the user input.
 - Users can use their coordinates (with location permission) and the previous year (2020) as default input.
 - Users can also use a custom latitude, longitude to get the graphical view. 
 - Users can use any custom year from 1981 to 2020. 
