@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Text, View, StyleSheet, Alert } from 'react-native';
+import { Text, View, StyleSheet, Alert } from 'react-native';
 import * as Location from 'expo-location';
 import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
 
@@ -23,43 +23,43 @@ const DefaultResult = () => {
 
     useEffect(() => {
         (async () => {
-          let { status } = await Location.requestForegroundPermissionsAsync();
-          if (status !== 'granted') {
-            setErrorMsg('Permission to access location was denied');
-            return;
-          }
-    
-          let location = await Location.getLastKnownPositionAsync({});
-          
-          setLocation(location.coords);
-          const {latitude, longitude} = location.coords;
+            let { status } = await Location.requestForegroundPermissionsAsync();
+            if (status !== 'granted') {
+                setErrorMsg('Permission to access location was denied');
+                return;
+            }
 
-          try {
-            const response = await fetch(
-                `https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=ALLSKY_SFC_SW_DWN&community=RE&longitude=${longitude}&latitude=${latitude}&format=JSON&start=2020&end=2020`
-                //`https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=ALLSKY_SFC_SW_DWN&community=RE&longitude=85&latitude=25&format=JSON&start=2020&end=2020`
-            );
-            const json = await response.json();
+            let location = await Location.getLastKnownPositionAsync({});
 
-            setJanData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202001])
-            setFebData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202002])
-            setMarData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202003])
-            setAprData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202004])
-            setMayData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202005])
-            setJunData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202006])
-            setJulData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202007])
-            setAugData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202008])
-            setSepData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202009])
-            setOctData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202010])
-            setNovData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202011])
-            setDecData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202012])
+            setLocation(location.coords);
+            const { latitude, longitude } = location.coords;
 
-        } catch (error) {
-            Alert.alert(error);
-        }
-          
+            try {
+                const response = await fetch(
+                    `https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=ALLSKY_SFC_SW_DWN&community=RE&longitude=${longitude}&latitude=${latitude}&format=JSON&start=2020&end=2020`
+                    //`https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=ALLSKY_SFC_SW_DWN&community=RE&longitude=85&latitude=25&format=JSON&start=2020&end=2020`
+                );
+                const json = await response.json();
+
+                setJanData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202001])
+                setFebData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202002])
+                setMarData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202003])
+                setAprData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202004])
+                setMayData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202005])
+                setJunData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202006])
+                setJulData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202007])
+                setAugData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202008])
+                setSepData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202009])
+                setOctData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202010])
+                setNovData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202011])
+                setDecData(json.properties.parameter.ALLSKY_SFC_SW_DWN[202012])
+
+            } catch (error) {
+                Alert.alert(error);
+            }
+
         })();
-      }, []);
+    }, []);
 
     const graphData = [
         { month: "Jan", solarData: janData },
@@ -78,8 +78,10 @@ const DefaultResult = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.paragraph}> Latitude : {location.latitude} </Text>
-            <Text style={styles.paragraph}> Longitude : {location.longitude} </Text>
+            <View style={styles.dataContainer}>
+                <Text style={styles.text}> Year: 2020 </Text>
+                <Text style={styles.text}> Latitude : {location.latitude}   Longitude : {location.longitude} </Text>
+            </View>
 
             <VictoryChart width={350} theme={VictoryTheme.material}>
                 <VictoryBar style={{ data: { fill: "#c43a31" } }} data={graphData} x="month" y="solarData" />
@@ -90,4 +92,36 @@ const DefaultResult = () => {
 
 export default DefaultResult
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 10,
+        backgroundColor: "white"
+    },
+    dataContainer: {
+        borderWidth: 0.5,
+        borderColor: "black",
+        borderRadius: 5,
+        width: "100%",
+        backgroundColor: "#e3ff00",
+        padding: 10,
+
+
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+
+    },
+    text: {
+        fontSize: 20,
+        textAlign: "center",
+    }
+})

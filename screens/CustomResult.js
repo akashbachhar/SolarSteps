@@ -65,11 +65,11 @@ const HomeScreen = ({ route, navigation }) => {
 
 
     return (
-        <View>
-            <Text>Result</Text>
-            <Text> year: {year} </Text>
-            <Text> lat: {lat} </Text>
-            <Text> long: {long} </Text>
+        <View style={styles.container}>
+            <View style={styles.dataContainer}>
+                <Text style={styles.text}> Year: {year} </Text>
+                <Text style={styles.text}> Latitude: {lat}   Longitude: {long}  </Text>
+            </View>
 
             <VictoryChart width={350} theme={VictoryTheme.material}>
                 <VictoryBar style={{ data: { fill: "#c43a31" } }} data={graphData} x="month" y="solarData" />
@@ -81,4 +81,36 @@ const HomeScreen = ({ route, navigation }) => {
 
 export default HomeScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 10,
+        backgroundColor: "white"
+    },
+    dataContainer: {
+        borderWidth: 0.5,
+        borderColor: "black",
+        borderRadius: 5,
+        width: "100%",
+        backgroundColor: "#e3ff00",
+        padding: 10,
+
+
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+
+    },
+    text: {
+        fontSize: 20,
+        textAlign: "center",
+    }
+})

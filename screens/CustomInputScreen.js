@@ -1,5 +1,6 @@
+import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native';
 import { Input } from 'react-native-elements';
 
 const HomeScreen = ({ navigation }) => {
@@ -9,35 +10,52 @@ const HomeScreen = ({ navigation }) => {
     const [long, setLong] = useState(null);
 
     return (
-        <View>
-            <Text>Custom Input </Text>
-            <View>
+        <KeyboardAvoidingView behavior="padding" style={styles.container}>
+            <StatusBar style="light" />
+
+            <View  style={styles.inputContainer}>
                 <Input
-                    placeholder="Year"
+                    placeholder="Enter the Year"
                     type="text"
                     value={year}
                     onChangeText={(text) => setYear(text)}
                 />
+
                 <Input
-                    placeholder="Lat"
+                    placeholder="Enter the Latitude"
                     type="text"
                     value={lat}
                     onChangeText={(text) => setLat(text)}
                 />
+
                 <Input
-                    placeholder="Long"
+                    placeholder="Enter the Longitude"
                     type="text"
                     value={long}
                     onChangeText={(text) => setLong(text)}
                 />
             </View>
-
-            <Button title="See the Result" onPress={()=> navigation.navigate("CustomResult", {year: year, lat: lat, long: long })} /> 
-
-        </View>
+            
+            <Button title="Submit" containerStyle={styles.button} raised onPress={()=> navigation.navigate("CustomResult", {year: year, lat: lat, long: long })} /> 
+        
+        </KeyboardAvoidingView>
     )
 }
 
 export default HomeScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 10,
+        backgroundColor: "white"
+    },
+    inputContainer: {
+        width: 300,
+    },
+    button: {
+        width: 300,
+    }
+})
