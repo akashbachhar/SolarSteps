@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Button, Image } from 'react-native-elements';
 
 const HomeScreen = ({ navigation }) => {
@@ -11,6 +11,8 @@ const HomeScreen = ({ navigation }) => {
             <Image source={require('../assets/solar-steps.png')}
                 style={styles.logo}
             />
+
+            <Text style={styles.text}> Measure the available sunshine :) </Text>
 
             <View>
                 <Button title="Default" containerStyle={styles.button} raised onPress={() => navigation.navigate("Your Location")} />
@@ -34,10 +36,14 @@ const styles = StyleSheet.create({
     logo: {
         height: 250,
         width: 250,
-        marginBottom: 30,
+        marginBottom: 20,
     },
     button: {
         width: 300,
         marginTop: 10,
     },
+    text:{
+        fontSize: 20,
+        marginBottom:10,
+    }
 })

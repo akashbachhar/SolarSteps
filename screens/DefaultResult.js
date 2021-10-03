@@ -81,6 +81,7 @@ const DefaultResult = () => {
         <View style={styles.container}>
             <View style={styles.dataContainer}>
                 <Text style={styles.text}> Year: 2020 </Text>
+                <Text style={styles.text}> Unit: kW-hr/m^2/day </Text>
                 <Text style={styles.text}> Latitude : {location.latitude}   Longitude : {location.longitude} </Text>
             </View>
 

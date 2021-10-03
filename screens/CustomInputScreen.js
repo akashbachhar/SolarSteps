@@ -15,7 +15,7 @@ const CustomInputScreen = ({ navigation }) => {
 
             <View  style={styles.inputContainer}>
                 <Input
-                    placeholder="Enter the Year"
+                    placeholder="Enter the Year YYYY (1981-2020)"
                     type="text"
                     value={year}
                     onChangeText={(text) => setYear(text)}

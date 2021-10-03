@@ -69,6 +69,7 @@ const CustomResult = ({ route, navigation }) => {
         <View style={styles.container}>
             <View style={styles.dataContainer}>
                 <Text style={styles.text}> Year: {year} </Text>
+                <Text style={styles.text}> Unit: kW-hr/m^2/day </Text>
                 <Text style={styles.text}> Latitude: {lat}   Longitude: {long}  </Text>
             </View>
 
